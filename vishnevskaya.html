@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" type="image/jpg" href="media/icons/favicon.png"/>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+<style type="text/css">
+      html::-webkit-scrollbar {
+    display: none;
+}
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 2; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+    </style>
+  </head>
+  <body>
+
+
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <form action="mail.php" method="post">
+  <div class="form-group" >
+    <label for="exampleFormControlSelect1">Выберите доктора:</label>
+    <select class="form-control" id="doc" name="doc" onchange="show();" onauxclick="">
+      <option value="0">Доктор</option>
+      <option value="Трофимова Светлана Николаевна" selected="Трофимова Светлана Николаевна">Трофимова Светлана Николаевна (врач акушер-гинеколог)</option>
+      <option value="Шамкаева Равуля Рамазановна">Шамкаева Равуля Рамазановна(Врач эндокринолог)</option>
+      <option value="Русских Надежда Федоровна">Русских Надежда Федоровна(УЗИ)</option>
+      <option value="Веригин Михаил Александрович">Веригин Михаил Александрович</option>
+      <option value="Сизова Ольга Федоровна">Сизова Ольга Федоровна(терапевт)</option>
+      <option value="Краснопольский Юрий Александрович">Краснопольский Юрий Александрович(гинеколог)</option>
+      <option value="Вишневская Галина Викторовна">Вишневская Галина Викторовна(ревматолог)</option>
+      <option value="Колчина Дарья Николаевна">Колчина Дарья Николаевна(маммолог)</option>
+      <option value="Ланина Надежда Владиславна">Ланина Надежда Владиславна(педиатр)</option>
+      <option value="Сокол Татьяна Владимировна">Сокол Татьяна Владимировна(гинеколог)</option>
+      <option value="Гатиатуллин Ильдар Зуфарович">Гатиатуллин Ильдар Зуфарович(уролог-андролог)</option>
+    </select>
+  </div>
+
+  <div class="form-group" id='center_choice'>
+    <label for="exampleFormControlSelect2">Выберите центр:</label>
+        <select class="form-control" id="centerchoice" name="center">
+      
+    </select>
+  </div>
+
+  
+  <div class="form-group">
+    <label for="exampleFormControlTextarea1">Время визита:</label>
+    <input type="date" class="form-control" name="time">
+    
+  </div>
+
+  <div class="form-group">
+    <label for="exampleFormControlTextarea1">Ваше имя:</label>
+    <input type="text" class="form-control" name="name">
+    
+  </div>
+<div class="form-group">
+    <label for="exampleFormControlTextarea1">Ваш телефон:</label>
+    <input type="tel" class="form-control" name="phone">
+    
+  </div>
+<div class="form-group">
+    <input type="submit" value="Отправить" class="form-control" style="background-color: #48b45c; color: white;">
+    
+  </div>
+</form>
+  </div>
+</div>
+
+
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: #48b45c;">
+  
+  <a class="navbar-brand" href="index.html">Медицинские анализы</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data='Hello' data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="index.html">Главная <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="index.html#our-buildings"> Наши центры</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="pricing.html"> Наши цены</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="services.html">Наши услуги</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="index.html#carouselExampleControls">Наши специалисты</a>
+      </li>
+
+    </ul>
+    <a href="tel:8 (3532) 43-05-19">
+    <span class="navbar-text" style="font-weight: bold; color: white;">
+      8 (3532) 43-05-19
+    </span>
+  </a>
+  </div>
+</nav>
+
+
+<div class="container-fluid" id="" style="margin-top:70px;  text-align: center;">
+  <h2 style="font-size: 42px; margin-bottom:30px; color:#48b45c; ">Наши специалисты</h2>
+  <h2 style="font-size: 30px; margin-bottom:30px; color:#48b45c; ">Вишневская Галина Викторовна</h2>
+  <div class="row" style="background-color: whitesmoke; margin-top: 10px;">
+     <div class="col-sm-4" style="margin-bottom: 10px; margin-top: 10px;">
+      <div class="card" style="width: 100%; height:100%">
+  <a href="vishnevskaya.html"><img src="media/vishnevskaya.webp" class="card-img-top"></a>
+  <div class="card-body">
+    <h5 class="card-title"><a href="vishnevskaya.html" style="text-decoration: none; color:black;">Вишневская Галина Викторовна</a></h5>
+    
+    <p class="card-text"><b>врач ревматолог</b><br>
+       Стоимость первичного приема - 800 ₽<br>
+    Стоимость повторного приема - 600 ₽</p>
+    
+    <button type="button"  onclick="select('Вишневская Галина Викторовна');" class="btn btn-success" style=" background-color: #48b45c;">ДЦ на Промысловом</button>
+  </div>
+
+    </div>
+</div>
+
+
+
+<div class="col-sm-8" style="margin-bottom: 10px; margin-top: 10px; text-align:left; ">
+  <h2 style="font-size:24px;">Образование:</h2>
+  <p style="font-size: 18px;">
+  - 1981год-Оренбургский государственный медицинский институт.  Специальность «Лечебное дело». Базовое образование.<br>
+- 1981-1982гг.- 3 городская больница г.Оренбурга. Интернатура по терапии.<br>
+- 1985-1987гг.- Ординатура по внутренним болезням. Кафедра внутренних болезней Оренбургский государственный медицинский институт.<br>
+
+
+  </p>
+  <h2 style="font-size:24px;">Курсы повышения квалификации:</h2>
+  <p style="font-size:18px;">
+  - 2001год-цикл «Клиническая кардиология». ОрГМА МЗ РФ.<br>
+ - 2004год-цикл «Клиническая ревматология». ОрГМА МЗ РФ.<br>
+- 2008год-цикл «Ревматология». ОрГМА МЗ РФ.<br>
+- 2013год-цикл «Клиническая ревматология». ОрГМА Росздрава.<br>
+- 2017год-цикл «Клиническая ревматология». ФГБОУ ВО ОрГМУ МЗ РФ.<br>
+- 2011год-высшая квалификационная категория по специальности «Ревматология».<br>
+
+    
+
+
+
+
+
+
+  </p>
+<h2 style="font-size:24px;">Опыт работы:</h2>
+<p style="font-size:18px;">
+- 1987г.- и по настоящее время работает в Областной клинической больнице №1.<br>
+- 2021г.- ООО «Эксперт» Диагностический центр на Поляничко.
+
+
+
+</p>
+
+</div>
+
+
+
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<div class="container-fluid" style=" width: 100vw; background-color:#48b45c; color:white; text-align: center; align-content:center; align-items: center; height: 5vh;">
+
+  <div style="margin-top:auto; margin-bottom:auto; text-align:center"><p >© 2021 Медицинские анализы</p></div>
+  
+
+<script type="text/javascript">
+function select(name) {
+  var select = document.getElementById('doc');
+  var options = select.options;
+  for (i=0;i<options.length;i++){
+    if (name==options[i].value){
+      select.options[i].selected='true';
+      show();
+    };
+  };
+};
+
+  function show(pref1,pref2) {
+  var modal = document.getElementById("myModal");
+  var option = document.getElementById('doc').value;
+  var select = document.getElementById('centerchoice');
+
+
+  console.log(option);
+  if (option=='Трофимова Светлана Николаевна'){
+    select.innerHTML = '';
+    select.innerHTML = `
+      <option value="ДЦ на Промысловом">ДЦ на Промысловом</option>`;
+
+  }
+  else if (option=='Шамкаева Равуля Рамазановна'){
+    select.innerHTML = '';
+    select.innerHTML = `
+      <option value="ДЦ на Поляничко">ДЦ на Поляничко</option>
+      <option value="ДЦ на Промысловом">ДЦ на Промысловом</option>`;
+
+  }
+  else if (option=='Русских Надежда Федоровна'){
+    select.innerHTML = '';
+    select.innerHTML = `
+      <option value="ДЦ на Поляничко">ДЦ на Поляничко</option>
+      <option value="ДЦ на Промысловом">ДЦ на Промысловом</option>`;
+  }
+  else if (option=='Веригин Михаил Александрович'){
+    select.innerHTML = '';
+    select.innerHTML = `
+      <option value="ДЦ на Поляничко">ДЦ на Поляничко</option>
+      <option value="ДЦ на Промысловом">ДЦ на Промысловом</option>`;
+  }
+  else if (option=='Сизова Ольга Федоровна'){
+    select.innerHTML = '';
+    select.innerHTML = `
+      <option value="ДЦ на Поляничко">ДЦ на Поляничко</option>
+      <option value="ДЦ на Промысловом">ДЦ на Промысловом</option>`;}
+  else if (option=='Краснопольский Юрий Александрович'){
+    select.innerHTML = '';
+    select.innerHTML = `
+      <option value="ДЦ на Поляничко">ДЦ на Поляничко</option>
+      `;
+    
+  }
+  else if (option=='Вишневская Галина Викторовна'){
+    select.innerHTML = '';
+    select.innerHTML = `
+      
+      <option value="ДЦ на Промысловом">ДЦ на Промысловом</option>`;
+    
+  }
+  else if (option=='Колчина Дарья Николаевна'){
+    select.innerHTML = '';
+    select.innerHTML = `
+      
+      <option value="ДЦ на Поляничко">ДЦ на Поляничко</option>`;
+  }
+  else if (option=='Ланина Надежда Владиславна'){
+    select.innerHTML = '';
+    select.innerHTML = `
+      <option value="ДЦ на Поляничко">ДЦ на Поляничко</option>
+      `;
+    
+  }
+  else if (option=='Сокол Татьяна Владимировна'){
+    select.innerHTML = '';
+    select.innerHTML = `
+      <option value="ДЦ на Поляничко">ДЦ на Поляничко</option>`;
+    
+  }
+   else if (option=='Гатиатуллин Ильдар Зуфарович'){
+    select.innerHTML = '';
+    select.innerHTML = `
+      
+      <option value="ДЦ на Промысловом">ДЦ на Промысловом</option>`;
+  };
+
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on the button, open the modal
+  modal.style.display = "block";
+
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+  };
+  
+</script>
+
+
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>
